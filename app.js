@@ -33,6 +33,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Gato',
         questionNumber: 1,
+        image:'https://images.unsplash.com/photo-1570359260668-d2b3085a0f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=676&q=80',
       },
       {
         question: 'What is a Biblioteca?',
@@ -45,6 +46,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Library',
         questionNumber: 2,
+        image:'https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1036&q=80',
       },
       {
         question: 'Pablo toca la guitara. What instrument does Pablo play?',
@@ -57,6 +59,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Guitar',
         questionNumber: 3,
+        image:'https://images.unsplash.com/photo-1483393458019-411bc6bd104e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
       },
       {
         question: 'Daisy tiene puesto zapatos verdes. What color are Daisys shoes ?',
@@ -69,6 +72,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Green',
         questionNumber: 4,
+        image:'https://images.unsplash.com/photo-1499756630622-6a7fd76720ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',
       },
       {
         question: 'What day is Cinco de Mayo on?',
@@ -81,6 +85,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'May 5th',
         questionNumber: 5,
+        image:'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
       }
     ],
     score: 0,
@@ -129,9 +134,11 @@ $(document).ready(function() {
 
     if (store.lastQuestionIncorrect === false) {
       let correctAnswerHtml = generateQuestionHtml();
-      $('main').html('<section>' + correctAnswerHtml + 
+      let currentQuestion = store.questions[store.questionCounter];
+      $('main').html('<section>' + 
 
-          `<p class="correctAnswer">You are Correct!</p>
+          `<img src="${currentQuestion.image}">
+          <p class="correctAnswer">You are Correct!</p>
           <p class="correctScore">Score: ${store.score}</p>
           <button class="nextbutton">Next</button>
     
@@ -139,9 +146,11 @@ $(document).ready(function() {
     } else if (store.lastQuestionIncorrect === true) {
       let correctAnswerHtml = generateQuestionHtml();
       let displayCorrect = store.questions[store.questionCounter].correctAnswer;
-      $('main').html('<section>' + correctAnswerHtml +
+      let currentQuestion = store.questions[store.questionCounter];
+      $('main').html('<section>' + 
 
-          `<p class="incorrectAnswer">You are incorrect!</p>
+          `<img src="${currentQuestion.image}">
+          <p class="incorrectAnswer">You are incorrect!</p>
           <p class="incorrectAnswerReal"> The Correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
           <p class="incorrectScore">Score: ${store.score}</p>
           <button class="nextbutton">Next</button>
