@@ -146,15 +146,21 @@ $(document).ready(function() {
     }
   }
 
+  // this function listens for a click on the next button
+  // when clicked, it resets lastQuestionIncorrect in the store object to 
+  // null and adds 1 to the question counter. then it calls our render function
+
   function handleNextClick() {
     $('body').on('click', '.nextbutton', function(event) {
       store.lastQuestionIncorrect = null;
       store.questionCounter += 1;
-      event.preventDefault();
+      // event.preventDefault();
       console.log('next button clicked');
       render();
     });
   }
+
+  // this function generates our question view html
 
   function generateQuestionHtml() {
     let questionNumber = store.questions[store.questionCounter].questionNumber;
@@ -181,6 +187,9 @@ $(document).ready(function() {
     </form>`;
     return questionHtml;
   }
+
+  // this function listens for a click on the start game button and sets
+  // store.firstGame to false. it then resets the questionCounter to 0 if we're on the last page. 
 
   function handleStartGameClick() {
     $('main').on('click', '.startbutton', function() {
@@ -216,8 +225,6 @@ $(document).ready(function() {
   function handleSubmitAnswerButton() {
     $('main').on('submit', '.questionform', function(event) {
       event.preventDefault();
-
-      
 
       if ($('input:checked').val() === store.questions[store.questionCounter].correctAnswer) {
         console.log('correct');
