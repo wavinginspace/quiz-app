@@ -10,6 +10,7 @@
 body {
 	font-size: 24px;
 	background-color: rgb(254, 237, 216);
+	font-family: 'Space Mono', monospace;
 }
 
 /* header styles the title*/
@@ -63,14 +64,11 @@ section h2 {
 }
 
 .inputselect:checked + label {
-	width: 100px;
 	background-color: rgb(108, 237, 151);
 }
 
 input[type=radio]:checked + label {
-	width: 100px;
 	background-color: rgb(108, 237, 151);
-	color: red;
 }
 
 .questionform label {
@@ -90,7 +88,7 @@ input[type=radio]:checked + label {
 }
 
 .questionform label:hover {
-	background-color: rgb(108, 237, 151);
+	background-color: rgb(68, 231, 249);
 }
 
 .questionform {
@@ -118,6 +116,7 @@ input[type=radio]:checked + label {
 .incorrectAnswer {
 	text-align: center;
 	color: red;
+	font-weight: 900;
 }
 
 /* incorrectScore styles the  */
@@ -127,6 +126,20 @@ input[type=radio]:checked + label {
 
 fieldset {
 	border: none;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+button {
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	display: block;
+}
+
+.finalscore {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;

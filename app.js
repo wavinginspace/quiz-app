@@ -151,16 +151,16 @@ $(document).ready(function() {
 
     <form class="questionform">
       <fieldset>
-      <label for="correct">
-      <input class="inputselect" type="radio" id="correct" name="choice" value="${currentQuestion.answers[0]}" tabindex="0" required>${currentQuestion.answers[0]}</label>
-      <label for="wrong1">
-      <input class="inputselect" type="radio" id="wrong1" name="choice" value="${currentQuestion.answers[1]}" tabindex="1" required>${currentQuestion.answers[1]}</label>
-      <label for="wrong2">
-      <input class="inputselect" type="radio" id="wrong2" name="choice" value="${currentQuestion.answers[2]}" tabindex="2" required>${currentQuestion.answers[2]}</label>
-      <label for="wrong3">
-      <input class="inputselect" type="radio" id="wrong3" name="choice" value="${currentQuestion.answers[3]}" tabindex="3" required>${currentQuestion.answers[3]}</label>
-      <label for="wrong4">
-      <input type="radio" id="wrong4" name="choice" value="${currentQuestion.answers[4]}" tabindex="4" required>${currentQuestion.answers[4]}</label>
+      <input class="inputselect" type="radio" id="correct" name="choice" value="${currentQuestion.answers[0]}" tabindex="0" required>
+      <label for="correct">${currentQuestion.answers[0]}</label>
+      <input class="inputselect" type="radio" id="wrong1" name="choice" value="${currentQuestion.answers[1]}" tabindex="1" required>
+      <label for="wrong1">${currentQuestion.answers[1]}</label>
+      <input class="inputselect" type="radio" id="wrong2" name="choice" value="${currentQuestion.answers[2]}" tabindex="2" required>
+      <label for="wrong2">${currentQuestion.answers[2]}</label>
+      <input class="inputselect" type="radio" id="wrong3" name="choice" value="${currentQuestion.answers[3]}" tabindex="3" required>
+      <label for="wrong3">${currentQuestion.answers[3]}</label>
+      <input class="inputselect" type="radio" id="wrong4" name="choice" value="${currentQuestion.answers[4]}" tabindex="4" required>
+      <label for="wrong4">${currentQuestion.answers[4]}</label>
       <button class="submitanswerbutton" type="submit">Submit Answer</button>
       </fieldset>
     </form>`;
