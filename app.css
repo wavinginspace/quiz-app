@@ -161,7 +161,7 @@ button {
 	text-align: center;
 	display: block;
 	cursor: pointer;
-	transition: box-shadow .5s ease-out;
+	transition: box-shadow .5s ease-out, transform .5s ease-out;
 }
 
 button:hover {
