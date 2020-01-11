@@ -87,7 +87,8 @@ $(document).ready(function() {
     questionCounter: 0,
     quizStarted: false,
     lastQuestionIncorrect: null,
-    firstGame: true
+    firstGame: true,
+    
   };
 
   // our render function is responsible for rendering all html to the page. it uses conditionals 
@@ -115,7 +116,7 @@ $(document).ready(function() {
     if (store.quizStarted === false && store.firstGame === true) {
       $('main').html(`<section>
       <h2 class="starttext">Do you want to play a game?</h2>
-        <button class="startbutton">Yes!</button>
+        <button class="startbutton">Si!</button>
     </section>`);
     } 
     // otherwise, we render the question view
@@ -136,10 +137,11 @@ $(document).ready(function() {
         </section>`);
     } else if (store.lastQuestionIncorrect === true) {
       let correctAnswerHtml = generateQuestionHtml();
-
+      let displayCorrect = store.questions[store.questionCounter].correctAnswer;
       $('main').html(correctAnswerHtml +
 
           `<p class="incorrectAnswer">You are incorrect!</p>
+          <p class="incorrectAnswer"> The Correct answer is ${displayCorrect}</p>
           <p class="incorrectScore">Score: ${store.score}</p>
           <button class="nextbutton">Next</button>
         </section>`);
