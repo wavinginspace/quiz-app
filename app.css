@@ -8,7 +8,7 @@
 */
 
 body {
-	font-size: 24px;
+	font-size: 16px;
 	background-color: rgb(254, 237, 216);
 	font-family: 'Space Mono', monospace;
 }
@@ -37,6 +37,11 @@ section h2 {
 	border-radius: 8px;
 	margin-left: auto;
 	margin-right: auto;
+	border: 2px solid #444;
+}
+
+.starttext {
+	margin-bottom: 40px;
 }
 
 /* nextbutton styles the next button when switching to another question */
@@ -46,6 +51,7 @@ section h2 {
 	border-radius: 8px;
 	text-align: center;
 	display: block;
+	border: 2px solid #444;
 }
 
 /* submitanswerbutton styles the Submit Answer button */
@@ -54,6 +60,7 @@ section h2 {
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
+	border: 2px solid #444;
 }
 
 .inputselect {
@@ -73,8 +80,9 @@ input[type=radio]:checked + label {
 
 .questionform label {
 	display: block;
+	font-size: 16px;
 	background-color: #ddd;
-	padding: 20px 50px;
+	padding: 15px 30px;
 	font-family: sans-serif, Arial;
 	border: 2px solid #444;
 	border-radius: 4px;
@@ -84,7 +92,7 @@ input[type=radio]:checked + label {
 }
 
 :checked {
-	background-color: rgb(108, 237, 151);
+	background-color: #6ced97;
 }
 
 .questionform label:hover {
@@ -101,27 +109,40 @@ input[type=radio]:checked + label {
 	text-align: center;
 }
 
+.question {
+	font-size: 24px;
+}
+
+.questionNumber {
+	position: absolute;
+	top: 20px;
+	left: 60px;
+}
+
 /* correctAnswer is used to center the correct response and color it green.*/
-.correctAnswer {
+
+.correctAnswer,
+.incorrectAnswer {
 	text-align: center;
-	color: rgb(108, 237, 151);
+	font-weight: 900;
+	font-size: 24px;
+}
+
+.correctAnswer {
+	color: #6ced97;
+}
+
+.incorrectAnswer {
+	color: red;
 }
 
 /* correctScore is used to center the the score number. */
-.correctScore {
-	text-align: center;
-}
-
-/* incorrectAnswer styles the text that appears when an incorrect answer is chosen */
-.incorrectAnswer {
-	text-align: center;
-	color: red;
-	font-weight: 900;
-}
-
-/* incorrectScore styles the  */
+.correctScore,
 .incorrectScore {
 	text-align: center;
+	top: 20px;
+	right: 60px;
+	position: absolute;
 }
 
 fieldset {
@@ -143,4 +164,11 @@ button {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	font-size: 32px;
+	margin-bottom: 80px;
+}
+
+.gameover {
+	font-size: 48px;
+	margin-bottom: 60px;
 }

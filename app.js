@@ -100,7 +100,7 @@ $(document).ready(function() {
 
     if (store.questionCounter === 5 && store.quizStarted === true) {
       $('main').html(`<section>
-      <h2>Game Over!</h2>
+      <h2 class="gameover">Game Over!</h2>
     
       <p class="finalscore">final score: ${store.score}/5</p>
       <button class="startbutton">start new quiz</button>
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
     if (store.quizStarted === false && store.firstGame === true) {
       $('main').html(`<section>
-      <h2>Do you want to play a game?</h2>
+      <h2 class="starttext">Do you want to play a game?</h2>
         <button class="startbutton">Yes!</button>
     </section>`);
     } 
@@ -216,10 +216,9 @@ $(document).ready(function() {
   function handleSubmitAnswerButton() {
     $('main').on('submit', '.questionform', function(event) {
       event.preventDefault();
-      console.log('I was submitted');
-      let selected = $('input[id=correct]');
-      console.log(selected);
-      console.log($('input:checked').val(), store.questions[store.questionCounter].correctAnswer);
+
+      
+
       if ($('input:checked').val() === store.questions[store.questionCounter].correctAnswer) {
         console.log('correct');
         store.score++;
