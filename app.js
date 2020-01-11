@@ -17,6 +17,9 @@
 
 $(document).ready(function() {
 
+  // store keeps track of all our quiz data - questions, answers, score, question number, whether
+  // the quiz has started, whether it's the first quiz being played, whether the last question
+  // was answered correctly or incorrectly. 
   const store = {
     questions: [
       {
@@ -87,9 +90,13 @@ $(document).ready(function() {
     firstGame: true
   };
 
+  // our render function is responsible for rendering all html to the page. it uses conditionals 
+  // to figure out which html should be rendered.
+
   function render() {
 
-    // if (store.questionCounter === false)
+    // if it's the questionCounter is 5 (after the last next button has been pressed) and 
+    // quizStarted is true, the html rendered will be the game over page.
 
     if (store.questionCounter === 5 && store.quizStarted === true) {
       $('main').html(`<section>
@@ -99,17 +106,24 @@ $(document).ready(function() {
       <button class="startbutton">start new quiz</button>
     </section>` 
       );
+      // if true, we return from this function to keep any further render conditionals from running
       return;
     }
+
+    // if the quiz hasn't started and it's the first game, we render the welcome page view
 
     if (store.quizStarted === false && store.firstGame === true) {
       $('main').html(`<section>
       <h2>Do you want to play a game?</h2>
         <button class="startbutton">Yes!</button>
     </section>`);
-    } else if (store.quizStarted === true) {
+    } 
+    // otherwise, we render the question view
+    else if (store.quizStarted === true) {
       $('main').html(generateQuestionHtml());
     }
+
+    // if the last question was answered correctly, display correct answer view, and visa versa
 
     if (store.lastQuestionIncorrect === false) {
       let correctAnswerHtml = generateQuestionHtml();
@@ -182,6 +196,8 @@ $(document).ready(function() {
     });
   }
 
+  // this function is responsible for listening to clicks on the new quiz button, using event delegation. when clicked, it changes firstGame to false (so that welcome page is never shown again) and quizStarted to true then it calls our render function
+
   function handleNewGameClick() {
     $('main').on('click', '.newquizbutton', function() {
       store.firstGame = false;
@@ -190,6 +206,12 @@ $(document).ready(function() {
       console.log('button was clicked');
     });
   }
+
+  // this function listens for a submit on our question form, using event delegation. when an answer
+  // is submitted, we check if the value of the value of the selected (checked) input is equal
+  // to the correctAnswer for the question kept in our store. if it is, we add 1 to the score and 
+  // change store.lastQuestionIncorrect to false. if it doesn't match correctAnswer,
+  // store.lastQuestionIncorrect is set to true. then we call our render function.
 
   function handleSubmitAnswerButton() {
     $('main').on('submit', '.questionform', function(event) {
@@ -210,6 +232,8 @@ $(document).ready(function() {
     });
   }
 
+  // this function is responsible for activating all of our other functions
+
   function buildQuizGame() {
     render();
     handleStartGameClick();
@@ -218,6 +242,8 @@ $(document).ready(function() {
     handleNextClick();
   }
 
-  buildQuizGame();
+  // this function calls our activator function, using jQuery syntax.
+
+  $(buildQuizGame);
 
 });
