@@ -61,6 +61,7 @@ section h2 {
 	margin-left: auto;
 	margin-right: auto;
 	border: 2px solid #444;
+	transition: box-shadow .5s ease-out;
 }
 
 .inputselect {
@@ -89,6 +90,7 @@ input[type=radio]:checked + label {
 	text-align: center;
 	margin-top: 10px;
 	transition: background-color .2s;
+	cursor: pointer;
 }
 
 :checked {
@@ -114,9 +116,9 @@ input[type=radio]:checked + label {
 }
 
 .questionNumber {
-	position: absolute;
-	top: 20px;
-	left: 60px;
+	position: relative;
+	margin-bottom: 30px;
+	font-size: 16px;
 }
 
 /* correctAnswer is used to center the correct response and color it green.*/
@@ -158,6 +160,12 @@ button {
 	margin-right: auto;
 	text-align: center;
 	display: block;
+	cursor: pointer;
+	transition: box-shadow .5s ease-out;
+}
+
+button:hover {
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .1);
 }
 
 .finalscore {
