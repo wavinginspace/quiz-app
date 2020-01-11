@@ -83,7 +83,8 @@ $(document).ready(function() {
     score: 0,
     questionCounter: 0,
     quizStarted: false,
-    lastQuestionIncorrect: null
+    lastQuestionIncorrect: null,
+    firstGame: true
   };
 
   function render() {
@@ -101,7 +102,7 @@ $(document).ready(function() {
       return;
     }
 
-    if (store.quizStarted === false) {
+    if (store.quizStarted === false && store.firstGame === true) {
       $('main').html(`<section>
       <h2>Do you want to play a game?</h2>
         <button class="startbutton">Yes!</button>
@@ -169,8 +170,8 @@ $(document).ready(function() {
 
   function handleStartGameClick() {
     $('main').on('click', '.startbutton', function() {
+      store.firstGame = false;
       if (store.questionCounter === 5) {
-        store.quizStarted = false;
         store.questionCounter = 0;
         store.score = 0;
       } else {
@@ -183,6 +184,7 @@ $(document).ready(function() {
 
   function handleNewGameClick() {
     $('main').on('click', '.newquizbutton', function() {
+      store.firstGame = false;
       store.quizStarted = true;
       render();
       console.log('button was clicked');
