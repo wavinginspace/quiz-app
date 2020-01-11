@@ -104,7 +104,7 @@ input[type=radio]:checked + label {
 /* correctAnswer is used to center the correct response and color it green.*/
 .correctAnswer {
 	text-align: center;
-	color: forestgreen;
+	color: rgb(108, 237, 151);
 }
 
 /* correctScore is used to center the the score number. */

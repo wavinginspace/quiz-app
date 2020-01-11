@@ -88,15 +88,18 @@ $(document).ready(function() {
 
   function render() {
 
-    if (store.questionCounter === 5) {
+    // if (store.questionCounter === false)
+
+    if (store.questionCounter === 5 && store.quizStarted === true) {
       $('main').html(`<section>
       <h2>Game Over!</h2>
     
       <p class="finalscore">final score: ${store.score}/5</p>
-      <button class="newquizbutton">start new quiz</button>
+      <button class="startbutton">start new quiz</button>
     </section>` 
       );
-      return;}
+      return;
+    }
 
     if (store.quizStarted === false) {
       $('main').html(`<section>
@@ -126,9 +129,6 @@ $(document).ready(function() {
           <button class="nextbutton">Next</button>
         </section>`);
     }
-
-   
-
   }
 
   function handleNextClick() {
@@ -169,6 +169,20 @@ $(document).ready(function() {
 
   function handleStartGameClick() {
     $('main').on('click', '.startbutton', function() {
+      if (store.questionCounter === 5) {
+        store.quizStarted = false;
+        store.questionCounter = 0;
+        store.score = 0;
+      } else {
+        store.quizStarted = true;
+      }
+      render();
+      console.log('button was clicked');
+    });
+  }
+
+  function handleNewGameClick() {
+    $('main').on('click', '.newquizbutton', function() {
       store.quizStarted = true;
       render();
       console.log('button was clicked');
@@ -198,6 +212,7 @@ $(document).ready(function() {
     render();
     handleStartGameClick();
     handleSubmitAnswerButton();
+    handleNewGameClick();
     handleNextClick();
   }
 
