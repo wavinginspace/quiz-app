@@ -9,7 +9,7 @@
 
 body {
 	font-size: 24px;
-	background-color:burlywood;
+	background-color: rgb(254, 237, 216);
 }
 
 /* header styles the title*/
@@ -21,7 +21,6 @@ header {
 
 /* best not to mess with this class it can edit the styling of the whole page */
 section {
-	
 	flex-direction: column;
 }
 
@@ -29,7 +28,7 @@ section {
 section h2 {
 	display: block;
 	text-align: center;
-	}
+}
 
 /* startbutton styles the button on the first page that's labeled Yes!   */
 .startbutton {
@@ -37,54 +36,98 @@ section h2 {
 	border-radius: 8px;
 	margin-left: auto;
 	margin-right: auto;
-	}
+}
 
 /* nextbutton styles the next button when switching to another question */
-.nextbutton{
+.nextbutton {
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 8px;
 	text-align: center;
-	}
-
-/* submitanswerbutton styles the Submit Answer button */
-.submitanswerbutton{
-	border-radius: 8px;
+	display: block;
 }
 
-/* label styles the different answer choices in the question*/
-label {
-	display: block;
-	}
+/* submitanswerbutton styles the Submit Answer button */
+.submitanswerbutton {
+	border-radius: 8px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-/* question styles the question text */
-.question{
+.inputselect {
+	opacity: 0;
+	position: fixed;
+	width: 20px;
 	text-align: center;
 }
 
-/* questionNumber styles the 'Question 1/5' text */
-.questionNumber{
-	text-align:center;
-	}
+.inputselect:checked + label {
+	width: 100px;
+	background-color: rgb(108, 237, 151);
+}
+
+input[type=radio]:checked + label {
+	width: 100px;
+	background-color: rgb(108, 237, 151);
+	color: red;
+}
+
+.questionform label {
+	display: block;
+	background-color: #ddd;
+	padding: 20px 50px;
+	font-family: sans-serif, Arial;
+	border: 2px solid #444;
+	border-radius: 4px;
+	text-align: center;
+	margin-top: 10px;
+	transition: background-color .2s;
+}
+
+:checked {
+	background-color: rgb(108, 237, 151);
+}
+
+.questionform label:hover {
+	background-color: rgb(108, 237, 151);
+}
+
+.questionform {
+	display: flex;
+}
+
+/* question styles the question text, questionNumber styles question number text */
+.question,
+.questionNumber {
+	text-align: center;
+}
 
 /* correctAnswer is used to center the correct response and color it green.*/
-.correctAnswer{	
-	text-align:center;
+.correctAnswer {
+	text-align: center;
 	color: forestgreen;
 }
 
 /* correctScore is used to center the the score number. */
-.correctScore{
+.correctScore {
 	text-align: center;
 }
 
 /* incorrectAnswer styles the text that appears when an incorrect answer is chosen */
-.incorrectAnswer{
-text-align: center;
-color: red;
+.incorrectAnswer {
+	text-align: center;
+	color: red;
 }
 
 /* incorrectScore styles the  */
-.incorrectScore{
+.incorrectScore {
+	text-align: center;
+}
+
+fieldset {
+	border: none;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
 }
