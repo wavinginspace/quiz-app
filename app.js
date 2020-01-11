@@ -122,8 +122,9 @@ $(document).ready(function() {
     // otherwise, we render the question view
     else if (store.quizStarted === true) {
       $('main').html(generateQuestionHtml());
-    }
+          }
 
+    
     // if the last question was answered correctly, display correct answer view, and visa versa
 
     if (store.lastQuestionIncorrect === false) {
@@ -169,6 +170,7 @@ $(document).ready(function() {
     let currentQuestion = store.questions[store.questionCounter];
     let questionHtml = `
       
+    <p class="correctScore">Score: ${store.score}</p>
     <p class="questionNumber"> Question ${questionNumber}/5</p>
     <p class="question">${currentQuestion.question}</p> 
 
