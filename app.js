@@ -114,7 +114,7 @@ $(document).ready(function() {
     // if the quiz hasn't started and it's the first game, we render the welcome page view
 
     if (store.quizStarted === false && store.firstGame === true) {
-      $('main').html(`<section>
+      $('main').html(`<section> <h1 class="quiztitle">Spanish Quiz</h1>
       <h2 class="starttext">Do you want to play a game?</h2>
         <button class="startbutton">Si!</button>
     </section>`);
@@ -128,7 +128,7 @@ $(document).ready(function() {
 
     if (store.lastQuestionIncorrect === false) {
       let correctAnswerHtml = generateQuestionHtml();
-      $('main').html(correctAnswerHtml + 
+      $('main').html('<section>' + correctAnswerHtml + 
 
           `<p class="correctAnswer">You are Correct!</p>
           <p class="correctScore">Score: ${store.score}</p>
@@ -138,7 +138,7 @@ $(document).ready(function() {
     } else if (store.lastQuestionIncorrect === true) {
       let correctAnswerHtml = generateQuestionHtml();
       let displayCorrect = store.questions[store.questionCounter].correctAnswer;
-      $('main').html(correctAnswerHtml +
+      $('main').html('<section>' + correctAnswerHtml +
 
           `<p class="incorrectAnswer">You are incorrect!</p>
           <p class="incorrectAnswer"> The Correct answer is ${displayCorrect}</p>
@@ -167,7 +167,7 @@ $(document).ready(function() {
   function generateQuestionHtml() {
     let questionNumber = store.questions[store.questionCounter].questionNumber;
     let currentQuestion = store.questions[store.questionCounter];
-    let questionHtml = `<section>
+    let questionHtml = `
       
     <p class="questionNumber"> Question ${questionNumber}/5</p>
     <p class="question">${currentQuestion.question}</p> 
