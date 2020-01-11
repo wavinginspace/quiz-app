@@ -122,7 +122,7 @@ $(document).ready(function() {
     // otherwise, we render the question view
     else if (store.quizStarted === true) {
       $('main').html(generateQuestionHtml());
-          }
+    }
 
     
     // if the last question was answered correctly, display correct answer view, and visa versa
@@ -142,7 +142,7 @@ $(document).ready(function() {
       $('main').html('<section>' + correctAnswerHtml +
 
           `<p class="incorrectAnswer">You are incorrect!</p>
-          <p class="incorrectAnswer"> The Correct answer is ${displayCorrect}</p>
+          <p class="incorrectAnswerReal"> The Correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
           <p class="incorrectScore">Score: ${store.score}</p>
           <button class="nextbutton">Next</button>
         </section>`);
@@ -171,20 +171,20 @@ $(document).ready(function() {
     let questionHtml = `
       
     <p class="correctScore">Score: ${store.score}</p>
-    <p class="questionNumber"> Question ${questionNumber}/5</p>
+    <h1 class="questionNumber"> Question ${questionNumber}/5</h1>
     <p class="question">${currentQuestion.question}</p> 
 
     <form class="questionform">
       <fieldset>
       <input class="inputselect" type="radio" id="correct" name="choice" value="${currentQuestion.answers[0]}" tabindex="0" required>
       <label for="correct">${currentQuestion.answers[0]}</label>
-      <input class="inputselect" type="radio" id="wrong1" name="choice" value="${currentQuestion.answers[1]}" tabindex="1" required>
+      <input class="inputselect" type="radio" id="wrong1" name="choice" value="${currentQuestion.answers[1]}" tabindex="0" required>
       <label for="wrong1">${currentQuestion.answers[1]}</label>
-      <input class="inputselect" type="radio" id="wrong2" name="choice" value="${currentQuestion.answers[2]}" tabindex="2" required>
+      <input class="inputselect" type="radio" id="wrong2" name="choice" value="${currentQuestion.answers[2]}" tabindex="0" required>
       <label for="wrong2">${currentQuestion.answers[2]}</label>
-      <input class="inputselect" type="radio" id="wrong3" name="choice" value="${currentQuestion.answers[3]}" tabindex="3" required>
+      <input class="inputselect" type="radio" id="wrong3" name="choice" value="${currentQuestion.answers[3]}" tabindex="0" required>
       <label for="wrong3">${currentQuestion.answers[3]}</label>
-      <input class="inputselect" type="radio" id="wrong4" name="choice" value="${currentQuestion.answers[4]}" tabindex="4" required>
+      <input class="inputselect" type="radio" id="wrong4" name="choice" value="${currentQuestion.answers[4]}" tabindex="0" required>
       <label for="wrong4">${currentQuestion.answers[4]}</label>
       <button class="submitanswerbutton" type="submit">Submit Answer</button>
       </fieldset>
