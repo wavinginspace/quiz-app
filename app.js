@@ -59,19 +59,19 @@ $(document).ready(function() {
         questionNumber: 3,
       },
       {
-        question: 'What is the capital of Mexico?',
+        question: 'Daisy tiene puesto zapatos verdes. What color are Daisys shoes ?',
         answers: [
-          'Mexico City',
-          'Cancun',
-          'Monterrey',
-          'Puebla',
-          'Tijuana'
+          'Brown',
+          'Red',
+          'Purple',
+          'Green',
+          'Yellow'
         ],
-        correctAnswer: 'Mexico City',
+        correctAnswer: 'Green',
         questionNumber: 4,
       },
       {
-        question: 'When is Mexican Independence Day?',
+        question: 'What day is Cinco de Mayo on?',
         answers: [
           'May 5th',
           'September 16th',
@@ -79,7 +79,7 @@ $(document).ready(function() {
           'Febuary 12th',
           'June 6th'
         ],
-        correctAnswer: 'September 16th',
+        correctAnswer: 'May 5th',
         questionNumber: 5,
       }
     ],
