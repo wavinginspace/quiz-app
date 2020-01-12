@@ -104,6 +104,9 @@ $(document).ready(function() {
 
   function render() {
 
+    // select questionCounter for access from conditional checks
+    let currentQuestion = store.questions[store.questionCounter];
+
     // if it's the questionCounter is 5 (after the last next button has been pressed) and quizStarted is true, the html rendered will be the game over page.
 
     if (store.questionCounter === 5 && store.quizStarted === true) {
@@ -133,31 +136,29 @@ $(document).ready(function() {
 
     // if the last question was answered correctly, display correct answer view, and visa versa
 
-    if (store.lastQuestionIncorrect === false) {
-      let correctAnswerHtml = generateQuestionHtml();
-      let currentQuestion = store.questions[store.questionCounter];
+    if (store.lastQuestionIncorrect === false) {      
       $('main').html(`
           <section> 
           <header>
           <p aria-label="score" class="incorrectScore">Score: ${store.score}</p>
           </header>
+          <h1 aria-label="question number" class="questionNumber"> Question ${currentQuestion.questionNumber}/5</h1>
           <img src="${currentQuestion.image}" alt="${currentQuestion.alt}">
-          <h1 aria-label="correct" class="correctAnswer">You are correct!</h1>
+          <p aria-label="correct" class="correctAnswer">You are correct!</p>
           <button aria-label="next question" class="nextbutton">Next</button>
     
         </section>`);
     } else if (store.lastQuestionIncorrect === true) {
-      let correctAnswerHtml = generateQuestionHtml();
       let displayCorrect = store.questions[store.questionCounter].correctAnswer;
-      let currentQuestion = store.questions[store.questionCounter];
-      $('main').html('<section>' + 
-
-          `<header>
+      $('main').html(`
+          <section> 
+          <header>
           <p aria-label="score" class="incorrectScore">Score: ${store.score}</p>
           </header>
-          
+          <h1 aria-label="question number" class="questionNumber"> Question ${currentQuestion.questionNumber}/5</h1>
+
           <img src="${currentQuestion.image}" alt="${currentQuestion.alt}">
-          <h1 aria-label="incorrect" class="incorrectAnswer">You are incorrect!</h1>
+          <p aria-label="incorrect" class="incorrectAnswer">You are incorrect!</p>
           <p aria-label = "correct answer" class="incorrectAnswerReal"> The correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
           <button aria-label="next question" class="nextbutton">Next</button>
         </section>`);
@@ -172,8 +173,6 @@ $(document).ready(function() {
     $('body').on('click', '.nextbutton', function(event) {
       store.lastQuestionIncorrect = null;
       store.questionCounter += 1;
-      // event.preventDefault();
-      console.log('next button clicked');
       render();
     });
   }
@@ -223,7 +222,6 @@ $(document).ready(function() {
         store.quizStarted = true;
       }
       render();
-      console.log('button was clicked');
     });
   }
 
@@ -234,7 +232,6 @@ $(document).ready(function() {
       store.firstGame = false;
       store.quizStarted = true;
       render();
-      console.log('button was clicked');
     });
   }
 
@@ -249,11 +246,9 @@ $(document).ready(function() {
       event.preventDefault();
 
       if ($('input:checked').val() === store.questions[store.questionCounter].correctAnswer) {
-        console.log('correct');
         store.score++;
         store.lastQuestionIncorrect = false;
       } else {
-        console.log('incorrect');
         store.lastQuestionIncorrect = true;
       }
       render();
