@@ -145,7 +145,7 @@ $(document).ready(function() {
           <p aria-label="score" class="incorrectScore">Score: ${store.score}</p>
           </header>
           <img src="${currentQuestion.image}" alt="${currentQuestion.alt}">
-          <h1 aria-label="correct" class="correctAnswer">You are Correct!</h1>
+          <h1 aria-label="correct" class="correctAnswer">You are correct!</h1>
           <button aria-label="next question" class="nextbutton">Next</button>
     
         </section>`);
@@ -161,7 +161,7 @@ $(document).ready(function() {
           
           <img src="${currentQuestion.image}" alt="${currentQuestion.alt}">
           <h1 aria-label="incorrect" class="incorrectAnswer">You are incorrect!</h1>
-          <p aria-label = "correct answer" class="incorrectAnswerReal"> The Correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
+          <p aria-label = "correct answer" class="incorrectAnswerReal"> The correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
           <button aria-label="next question" class="nextbutton">Next</button>
         </section>`);
     }
