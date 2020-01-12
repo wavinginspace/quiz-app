@@ -160,7 +160,6 @@ $(document).ready(function() {
           <p aria-label="score" class="incorrectScore">Score: ${store.score}</p>
           </header>
           <h1 aria-label="question number" class="questionNumber"> Question ${currentQuestion.questionNumber}/5</h1>
-
           <img src="${currentQuestion.image}" alt="${currentQuestion.alt}">
           <p aria-label="incorrect" class="incorrectAnswer">You are incorrect!</p>
           <p aria-label = "correct answer" class="incorrectAnswerReal"> The correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
