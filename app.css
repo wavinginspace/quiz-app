@@ -71,7 +71,6 @@ section h2 {
 	border: 2px solid #444;
 }
 
-/* submitanswerbutton styles the Submit Answer button */
 .submitanswerbutton {
 	border-radius: 8px;
 	margin: 20px auto 0 auto;
@@ -124,7 +123,6 @@ input[type=radio]:checked + label {
 	display: flex;
 }
 
-/* question styles the question text, questionNumber styles question number text */
 .question,
 .questionNumber {
 	text-align: center;
@@ -152,8 +150,6 @@ img {
 	border: 2px solid #222;
 }
 
-/* correctAnswer is used to center the correct response and color it green.*/
-
 .correctAnswer,
 .incorrectAnswer {
 	text-align: center;
@@ -176,7 +172,6 @@ img {
 	color: #016125;
 }
 
-/* correctScore is used to center the the score number. */
 .correctScore,
 .incorrectScore {
 	text-align: center;
@@ -186,11 +181,15 @@ img {
 	right: 20px;
 }
 
-fieldset {
-	border: none;
+fieldset,
+.finalscore {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+}
+
+fieldset {
+	border: none;
 }
 
 button {
@@ -207,9 +206,6 @@ button:focus {
 }
 
 .finalscore {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
 	font-size: 32px;
 	margin-bottom: 80px;
 }
