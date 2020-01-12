@@ -1,12 +1,3 @@
-/* Your styles should be mobile-first and responsive */
-
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
-
 body {
 	font-size: 16px;
 	background-color: rgb(254, 237, 216);
@@ -28,18 +19,15 @@ header {
 	padding: 0 40px;
 }
 
-/* best not to mess with this class it can edit the styling of the whole page */
 section {
 	flex-direction: column;
 }
 
-/* styles the second heading that reads 'Do you want to play a game?' */
 section h2 {
 	display: block;
 	text-align: center;
 }
 
-/* startbutton styles the button on the first page that's labeled Yes!   */
 .startbutton {
 	display: block;
 	border-radius: 8px;
@@ -60,7 +48,6 @@ section h2 {
 	padding: 0 40px;
 }
 
-/* nextbutton styles the next button when switching to another question */
 .nextbutton {
 	margin-left: auto;
 	margin-right: auto;
