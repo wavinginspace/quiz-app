@@ -17,6 +17,8 @@
 
 $(document).ready(function() {
 
+  // * STORE
+
   // store keeps track of all our quiz data - questions, answers, score, question number, whether
   // the quiz has started, whether it's the first quiz being played, whether the last question
   // was answered correctly or incorrectly. 
@@ -100,6 +102,8 @@ $(document).ready(function() {
     firstGame: true,
   };
 
+  // * RENDER FUNCTION
+
   // our render function is responsible for rendering all html to the page. it uses conditionals to figure out which html should be rendered.
 
   function render() {
@@ -165,17 +169,7 @@ $(document).ready(function() {
     }
   }
 
-  // this function listens for a click on the next button
-  // when clicked, it resets lastQuestionIncorrect in the store object to 
-  // null and adds 1 to the question counter. then it calls our render function
-
-  function handleNextClick() {
-    $('body').on('click', '.nextbutton', function(event) {
-      store.lastQuestionIncorrect = null;
-      store.questionCounter += 1;
-      render();
-    });
-  }
+  // * GENERATE QUESTION HTML FUNCTION
 
   // this function generates our question view html
 
@@ -207,6 +201,20 @@ $(document).ready(function() {
       </fieldset>
     </form>`;
     return questionHtml;
+  }
+
+  // * EVENT HANDLER FUNCTIONS
+
+  // this function listens for a click on the next button
+  // when clicked, it resets lastQuestionIncorrect in the store object to 
+  // null and adds 1 to the question counter. then it calls our render function
+
+  function handleNextClick() {
+    $('body').on('click', '.nextbutton', function(event) {
+      store.lastQuestionIncorrect = null;
+      store.questionCounter += 1;
+      render();
+    });
   }
 
   // this function listens for a click on the start game button and sets
@@ -255,6 +263,8 @@ $(document).ready(function() {
     });
   }
 
+  // * ACTIVATOR FUNCTION
+
   // this function is responsible for activating all of our other functions
 
   function buildQuizGame() {
@@ -264,6 +274,8 @@ $(document).ready(function() {
     handleNewGameClick();
     handleNextClick();
   }
+
+  // * CALL ACTIVATOR FUNCTION
 
   // this function calls our activator function, using jQuery syntax.
 
