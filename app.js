@@ -34,6 +34,7 @@ $(document).ready(function() {
         correctAnswer: 'Gato',
         questionNumber: 1,
         image:'https://images.unsplash.com/photo-1570359260668-d2b3085a0f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=676&q=80',
+        alt: 'cat'
       },
       {
         question: 'What is a Biblioteca?',
@@ -47,6 +48,7 @@ $(document).ready(function() {
         correctAnswer: 'Library',
         questionNumber: 2,
         image:'https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1036&q=80',
+        alt: 'library'
       },
       {
         question: 'Pablo toca la guitara. What instrument does Pablo play?',
@@ -60,6 +62,7 @@ $(document).ready(function() {
         correctAnswer: 'Guitar',
         questionNumber: 3,
         image:'https://images.unsplash.com/photo-1483393458019-411bc6bd104e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
+        alt: 'guitar'
       },
       {
         question: 'Daisy tiene puesto zapatos verdes. What color are Daisys shoes ?',
@@ -73,6 +76,7 @@ $(document).ready(function() {
         correctAnswer: 'Green',
         questionNumber: 4,
         image:'https://images.unsplash.com/photo-1499756630622-6a7fd76720ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',
+        alt: 'green shoes'
       },
       {
         question: 'What day is Cinco de Mayo on?',
@@ -86,6 +90,7 @@ $(document).ready(function() {
         correctAnswer: 'May 5th',
         questionNumber: 5,
         image:'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        alt: 'cinco de mayo flags'
       }
     ],
     score: 0,
@@ -93,7 +98,6 @@ $(document).ready(function() {
     quizStarted: false,
     lastQuestionIncorrect: null,
     firstGame: true,
-    
   };
 
   // our render function is responsible for rendering all html to the page. it uses conditionals 
@@ -135,12 +139,14 @@ $(document).ready(function() {
     if (store.lastQuestionIncorrect === false) {
       let correctAnswerHtml = generateQuestionHtml();
       let currentQuestion = store.questions[store.questionCounter];
-      $('main').html('<section>' + 
-
-          `<img src="${currentQuestion.image}">
-          <p class="correctAnswer">You are Correct!</p>
-          <p class="correctScore">Score: ${store.score}</p>
-          <button class="nextbutton">Next</button>
+      $('main').html(`
+          <section> 
+          <header>
+          <p aria-label="score" class="incorrectScore">Score: ${store.score}</p>
+          </header>
+          <img src="${currentQuestion.image}" alt="${currentQuestion.alt}">
+          <h1 aria-label="correct" class="correctAnswer">You are Correct!</h1>
+          <button aria-label="next question" class="nextbutton">Next</button>
     
         </section>`);
     } else if (store.lastQuestionIncorrect === true) {
@@ -149,11 +155,14 @@ $(document).ready(function() {
       let currentQuestion = store.questions[store.questionCounter];
       $('main').html('<section>' + 
 
-          `<img src="${currentQuestion.image}">
-          <p class="incorrectAnswer">You are incorrect!</p>
-          <p class="incorrectAnswerReal"> The Correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
-          <p class="incorrectScore">Score: ${store.score}</p>
-          <button class="nextbutton">Next</button>
+          `<header>
+          <p aria-label="score" class="incorrectScore">Score: ${store.score}</p>
+          </header>
+          
+          <img src="${currentQuestion.image}" alt="${currentQuestion.alt}">
+          <h1 aria-label="incorrect" class="incorrectAnswer">You are incorrect!</h1>
+          <p aria-label = "correct answer" class="incorrectAnswerReal"> The Correct answer is <span class="correcthighlight">${displayCorrect}</span></p>
+          <button aria-label="next question" class="nextbutton">Next</button>
         </section>`);
     }
   }
@@ -178,24 +187,27 @@ $(document).ready(function() {
     let questionNumber = store.questions[store.questionCounter].questionNumber;
     let currentQuestion = store.questions[store.questionCounter];
     let questionHtml = `
-      
-    <p class="correctScore">Score: ${store.score}</p>
-    <h1 class="questionNumber"> Question ${questionNumber}/5</h1>
-    <p class="question">${currentQuestion.question}</p> 
+    
+    <header>
+    </header>
+    <p aria-label="score" class="correctScore">Score: ${store.score}</p>
+  
+    <h1 aria-label="question number" class="questionNumber"> Question ${questionNumber}/5</h1>
+    <p aria-label="question" class="question">${currentQuestion.question}</p> 
 
-    <form class="questionform">
+    <form aria-label="answer choices" class="questionform">
       <fieldset>
       <input class="inputselect" type="radio" id="correct" name="choice" value="${currentQuestion.answers[0]}" tabindex="0" required>
-      <label for="correct">${currentQuestion.answers[0]}</label>
+      <label aria-label="choice 1" for="correct">${currentQuestion.answers[0]}</label>
       <input class="inputselect" type="radio" id="wrong1" name="choice" value="${currentQuestion.answers[1]}" tabindex="0" required>
-      <label for="wrong1">${currentQuestion.answers[1]}</label>
+      <label aria-label="choice 2" for="wrong1">${currentQuestion.answers[1]}</label>
       <input class="inputselect" type="radio" id="wrong2" name="choice" value="${currentQuestion.answers[2]}" tabindex="0" required>
-      <label for="wrong2">${currentQuestion.answers[2]}</label>
+      <label aria-label="choice 3" for="wrong2">${currentQuestion.answers[2]}</label>
       <input class="inputselect" type="radio" id="wrong3" name="choice" value="${currentQuestion.answers[3]}" tabindex="0" required>
-      <label for="wrong3">${currentQuestion.answers[3]}</label>
+      <label aria-label="choice 4" for="wrong3">${currentQuestion.answers[3]}</label>
       <input class="inputselect" type="radio" id="wrong4" name="choice" value="${currentQuestion.answers[4]}" tabindex="0" required>
-      <label for="wrong4">${currentQuestion.answers[4]}</label>
-      <button class="submitanswerbutton" type="submit">Submit Answer</button>
+      <label aria-label="choice 5" for="wrong4">${currentQuestion.answers[4]}</label>
+      <button aria-label="submit answer" class="submitanswerbutton" type="submit">Submit Answer</button>
       </fieldset>
     </form>`;
     return questionHtml;
