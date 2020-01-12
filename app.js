@@ -100,13 +100,11 @@ $(document).ready(function() {
     firstGame: true,
   };
 
-  // our render function is responsible for rendering all html to the page. it uses conditionals 
-  // to figure out which html should be rendered.
+  // our render function is responsible for rendering all html to the page. it uses conditionals to figure out which html should be rendered.
 
   function render() {
 
-    // if it's the questionCounter is 5 (after the last next button has been pressed) and 
-    // quizStarted is true, the html rendered will be the game over page.
+    // if it's the questionCounter is 5 (after the last next button has been pressed) and quizStarted is true, the html rendered will be the game over page.
 
     if (store.questionCounter === 5 && store.quizStarted === true) {
       $('main').html(`<section>
@@ -133,7 +131,6 @@ $(document).ready(function() {
       $('main').html(generateQuestionHtml());
     }
 
-    
     // if the last question was answered correctly, display correct answer view, and visa versa
 
     if (store.lastQuestionIncorrect === false) {

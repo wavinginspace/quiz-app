@@ -25,6 +25,7 @@ header {
 	text-align: center;
 	margin-bottom: 100px;
 	font-size: 40px;
+	padding: 0 40px;
 }
 
 /* best not to mess with this class it can edit the styling of the whole page */
@@ -56,6 +57,7 @@ section h2 {
 
 .starttext {
 	margin-bottom: 40px;
+	padding: 0 40px;
 }
 
 /* nextbutton styles the next button when switching to another question */
