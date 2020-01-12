@@ -67,7 +67,7 @@ $(document).ready(function() {
         alt: 'guitar'
       },
       {
-        question: 'Daisy tiene puesto zapatos verdes. What color are Daisys shoes ?',
+        question: 'Daisy tiene puesto zapatos verdes. What color are Daisy\'s shoes ?',
         answers: [
           'Brown',
           'Red',
