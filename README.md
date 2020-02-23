@@ -1,3 +1,3 @@
-created by Cesar Hernandez and Paul Baisley.
+created by Paul Baisley and Cesar Hernandez.
 
 royalty-free images from Unsplash.com
