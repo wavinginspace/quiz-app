@@ -35,7 +35,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Gato',
         questionNumber: 1,
-        image:'https://images.unsplash.com/photo-1570359260668-d2b3085a0f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=676&q=80',
+        image:'images/gato.jpeg',
         alt: 'cat'
       },
       {
@@ -49,7 +49,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Library',
         questionNumber: 2,
-        image:'https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1036&q=80',
+        image:'images/library.jpg',
         alt: 'library'
       },
       {
@@ -63,7 +63,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Guitar',
         questionNumber: 3,
-        image:'https://images.unsplash.com/photo-1483393458019-411bc6bd104e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
+        image:'images/band.jpeg',
         alt: 'guitar'
       },
       {
@@ -77,7 +77,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'Green',
         questionNumber: 4,
-        image:'https://images.unsplash.com/photo-1499756630622-6a7fd76720ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',
+        image:'images/shoes.jpeg',
         alt: 'green shoes'
       },
       {
@@ -91,7 +91,7 @@ $(document).ready(function() {
         ],
         correctAnswer: 'May 5th',
         questionNumber: 5,
-        image:'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        image:'images/flags.jpeg',
         alt: 'cinco de mayo flags'
       }
     ],
